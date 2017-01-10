@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd" >
+    <!--逻辑器分片计算器,一个自定义分片计算器示例-->
+    <bean id="jdbcShardingDBSliceComputeImpl" class="com.petesky.jdbcSharding.demo.JdbcShardingDao.slice.JdbcShardingDBSliceComputeImpl"/>
+
+    <!--简单mod分片算计算器-->
+    <bean id="simpleModComputeImpl" class="com.petesky.jdbcSharding.dbRouter.impl.slice.simple.SimpleModComputeImpl"/>
+
+
+    <!--分片计算器组-->
+    <bean id="sliceModComputeList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+
+                <ref bean="jdbcShardingDBSliceComputeImpl"/>
+
+                <ref bean="simpleModComputeImpl"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+
+    <!-- 分表路由对象 -->
+    <bean id="userShardingRouter" class="com.petesky.jdbcSharding.dbRouter.impl.DBRouterImpl">
+        <!-- sql中的表名，单表查询可不用配置，联表查询必须配置 -->
+        <property name="tableName" value="user_sharding"/>
+        <!-- 分片规则 即表名生成规则-->
+        <property name="tableRule" value="jdbcSharding_db{0}.user_sharding_{1}"/>
+        <!-- 分片数量 -->
+        <property name="tableNumber" value="64"/>
+        <!-- 分片字段，hash 模式可配置之个字段，多个字段用逗号分割 -->
+        <property name="shardField" value="id"/>
+        <!-- 分片方式，可选 hash 或 mod-->
+        <property name="shardingType" value="mod"/>
+        <!-- 分片计算器组-->
+        <property name="sliceComputeList" ref="sliceModComputeList"/>
+    </bean>
+    </beans>

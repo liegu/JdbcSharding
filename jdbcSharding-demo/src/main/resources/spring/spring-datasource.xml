@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!--==============================================================================-->
+    <!--========================配置数据源===开始========================================-->
+    <!--==============================================================================-->
+
+
+    <!--写数据源-->
+    <bean id="witeDS" lazy-init="true" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass"><value>${mysql.driver}</value></property>
+        <property name="jdbcUrl"><value>${write.jdbc.url}</value></property>
+        <property name="user"><value>${write.jdbc.username}</value></property>
+        <property name="password"><value>${write.jdbc.password}</value></property>
+        <property name="minPoolSize"><value>10</value></property>
+        <property name="maxPoolSize"><value>10</value></property>
+        <property name="idleConnectionTestPeriod"><value>25</value></property>
+        <property name="maxIdleTime"><value>300</value></property>
+        <property name="breakAfterAcquireFailure"><value>false</value></property>
+        <property name="checkoutTimeout"><value>6000</value></property>
+        <property name="acquireRetryAttempts"><value>30</value></property>
+        <property name="acquireRetryDelay"><value>1000</value></property>
+    </bean>
+    <!--读数据源-->
+    <bean id="readDS" lazy-init="true" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass"><value>${mysql.driver}</value></property>
+        <property name="jdbcUrl"><value>${read.jdbc.url}</value></property>
+        <property name="user"><value>${read.jdbc.username}</value></property>
+        <property name="password"><value>${read.jdbc.password}</value></property>
+        <property name="minPoolSize"><value>20</value></property>
+        <property name="maxPoolSize"><value>20</value></property>
+        <property name="idleConnectionTestPeriod"><value>25</value></property>
+        <property name="maxIdleTime"><value>300</value></property>
+        <property name="breakAfterAcquireFailure"><value>false</value></property>
+        <property name="checkoutTimeout"><value>6000</value></property>
+        <property name="acquireRetryAttempts"><value>30</value></property>
+        <property name="acquireRetryDelay"><value>1000</value></property>
+    </bean>
+    <!--id生成器数据源-->
+    <bean id="seqDS" lazy-init="true" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass"><value>${mysql.driver}</value></property>
+        <property name="jdbcUrl"><value>${seq.jdbc.url}</value></property>
+        <property name="user"><value>${seq.jdbc.username}</value></property>
+        <property name="password"><value>${seq.jdbc.password}</value></property>
+        <property name="minPoolSize"><value>2</value></property>
+        <property name="maxPoolSize"><value>5</value></property>
+        <property name="idleConnectionTestPeriod"><value>25</value></property>
+        <property name="maxIdleTime"><value>300</value></property>
+        <property name="breakAfterAcquireFailure"><value>false</value></property>
+        <property name="checkoutTimeout"><value>6000</value></property>
+        <property name="acquireRetryAttempts"><value>30</value></property>
+        <property name="acquireRetryDelay"><value>1000</value></property>
+    </bean>
+
+    <!--drds测试数据源-->
+    <bean id="sk0ds" lazy-init="true" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass"><value>${mysql.driver}</value></property>
+        <property name="jdbcUrl"><value>${sk0.jdbc.url}</value></property>
+        <property name="user"><value>${sk0.jdbc.username}</value></property>
+        <property name="password"><value>${sk0.jdbc.password}</value></property>
+        <property name="minPoolSize"><value>2</value></property>
+        <property name="maxPoolSize"><value>5</value></property>
+        <property name="idleConnectionTestPeriod"><value>25</value></property>
+        <property name="maxIdleTime"><value>300</value></property>
+        <property name="breakAfterAcquireFailure"><value>false</value></property>
+        <property name="checkoutTimeout"><value>6000</value></property>
+        <property name="acquireRetryAttempts"><value>30</value></property>
+        <property name="acquireRetryDelay"><value>1000</value></property>
+    </bean>
+
+    <bean id="sk1ds" lazy-init="true" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass"><value>${mysql.driver}</value></property>
+        <property name="jdbcUrl"><value>${sk1.jdbc.url}</value></property>
+        <property name="user"><value>${sk1.jdbc.username}</value></property>
+        <property name="password"><value>${sk1.jdbc.password}</value></property>
+        <property name="minPoolSize"><value>2</value></property>
+        <property name="maxPoolSize"><value>5</value></property>
+        <property name="idleConnectionTestPeriod"><value>25</value></property>
+        <property name="maxIdleTime"><value>300</value></property>
+        <property name="breakAfterAcquireFailure"><value>false</value></property>
+        <property name="checkoutTimeout"><value>6000</value></property>
+        <property name="acquireRetryAttempts"><value>30</value></property>
+        <property name="acquireRetryDelay"><value>1000</value></property>
+    </bean>
+
+    <bean id="sk2ds" lazy-init="true" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass"><value>${mysql.driver}</value></property>
+        <property name="jdbcUrl"><value>${sk2.jdbc.url}</value></property>
+        <property name="user"><value>${sk2.jdbc.username}</value></property>
+        <property name="password"><value>${sk2.jdbc.password}</value></property>
+        <property name="minPoolSize"><value>2</value></property>
+        <property name="maxPoolSize"><value>5</value></property>
+        <property name="idleConnectionTestPeriod"><value>25</value></property>
+        <property name="maxIdleTime"><value>300</value></property>
+        <property name="breakAfterAcquireFailure"><value>false</value></property>
+        <property name="checkoutTimeout"><value>6000</value></property>
+        <property name="acquireRetryAttempts"><value>30</value></property>
+        <property name="acquireRetryDelay"><value>1000</value></property>
+    </bean>
+
+    <!--==============================================================================-->
+    <!--========================配置样板类===开始========================================-->
+    <!--==============================================================================-->
+
+
+    <!--jdbc操作样板类,如果没有做读写分离可以将读写数据源设置成同一个-->
+    <bean id="jdbcShardingTemplate" class="com.petesky.jdbcSharding.JdbcShardingTemplate">
+        <property name="dataSource">
+            <!--单个写DataSource-->
+            <ref bean="witeDS"/>
+        </property>
+        <property name="dataSourceSlaves">
+            <!--多个读DataSource-->
+            <list>
+                <ref bean="readDS"/>
+                <ref bean="readDS"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--namedParameterJdbcShardingTemplate 是jdbcShardingTemplate的再包装-->
+    <bean id="namedParameterJdbcShardingTemplate" class="com.petesky.jdbcSharding.NamedParameterJdbcShardingTemplate">
+        <property name="classicJdbcTemplate">
+            <ref bean="jdbcShardingTemplate"/>
+        </property>
+    </bean>
+
+
+    <!--==============================================================================-->
+    <!--========================配置单DataSource 单库单表dao===开始======================-->
+    <!--==============================================================================-->
+
+    <!--单DataSource 单库单表dao-->
+    <bean id="namedParameterJdbcDao" class="com.petesky.jdbcSharding.dao.NamedParameterJdbcDao">
+        <property name="namedParameterJdbcShardingTemplate">
+            <ref bean="namedParameterJdbcShardingTemplate"/>
+        </property>
+    </bean>
+
+
+
+    <!--==============================================================================-->
+    <!--========================配置单DataSource 多库多表dao===开始======================-->
+    <!--==============================================================================-->
+
+
+    <!--jdbc操作样板类,如果没有做读写分离可以将读写数据源设置成同一个-->
+    <bean id="jdbcShardingTemplateSk0" class="com.petesky.jdbcSharding.JdbcShardingTemplate">
+        <property name="dataSource">
+            <!--单个写DataSource-->
+            <ref bean="sk0ds"/>
+        </property>
+        <property name="dataSourceSlaves">
+            <!--多个读DataSource-->
+            <list>
+                <ref bean="sk0ds"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--namedParameterJdbcShardingTemplate 是jdbcShardingTemplate的再包装-->
+    <bean id="namedParameterJdbcShardingTemplateSk0" class="com.petesky.jdbcSharding.NamedParameterJdbcShardingTemplate">
+        <property name="classicJdbcTemplate">
+            <ref bean="jdbcShardingTemplateSk0"/>
+        </property>
+    </bean>
+
+    <!--单DataSource 多库多表dao-->
+    <bean id="namedParameterJdbcShardingDao" class="com.petesky.jdbcSharding.dao.NamedParameterJdbcShardingDao">
+        <property name="namedParameterJdbcShardingTemplate">
+            <ref bean="namedParameterJdbcShardingTemplateSk0"/>
+        </property>
+    </bean>
+
+    <!--==============================================================================-->
+    <!--========================配置多DataSource 多库多表dao===开始======================-->
+    <!--==============================================================================-->
+
+    <!--单DataSource 多库多表dao-->
+    <bean id="jdbcShardingTemplate0" class="com.petesky.jdbcSharding.JdbcShardingTemplate">
+        <property name="dataSource">
+            <ref bean="sk0ds"/>
+        </property>
+        <property name="dataSourceSlaves">
+            <list>
+                <ref bean="sk0ds"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="namedParameterJdbcShardingTemplate0" class="com.petesky.jdbcSharding.NamedParameterJdbcShardingTemplate">
+        <property name="classicJdbcTemplate">
+            <ref bean="jdbcShardingTemplate0"/>
+        </property>
+    </bean>
+
+    <bean id="jdbcShardingTemplate1" class="com.petesky.jdbcSharding.JdbcShardingTemplate">
+        <property name="dataSource">
+            <ref bean="sk1ds"/>
+        </property>
+        <property name="dataSourceSlaves">
+            <list>
+                <ref bean="sk1ds"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="namedParameterJdbcShardingTemplate1" class="com.petesky.jdbcSharding.NamedParameterJdbcShardingTemplate">
+        <property name="classicJdbcTemplate">
+            <ref bean="jdbcShardingTemplate1"/>
+        </property>
+    </bean>
+
+    <bean id="jdbcShardingTemplate2" class="com.petesky.jdbcSharding.JdbcShardingTemplate">
+        <property name="dataSource">
+            <ref bean="sk2ds"/>
+        </property>
+        <property name="dataSourceSlaves">
+            <list>
+                <ref bean="sk2ds"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="namedParameterJdbcShardingTemplate2" class="com.petesky.jdbcSharding.NamedParameterJdbcShardingTemplate">
+        <property name="classicJdbcTemplate">
+            <ref bean="jdbcShardingTemplate2"/>
+        </property>
+    </bean>
+
+    <bean id="namedParameterJdbcDsShardingDao" class="com.petesky.jdbcSharding.dao.NamedParameterJdbcDsShardingDao">
+        <property name="namedParameterJdbcShardingTemplateList">
+            <list>
+                <ref bean="namedParameterJdbcShardingTemplate0"/>
+                <ref bean="namedParameterJdbcShardingTemplate1"/>
+                <ref bean="namedParameterJdbcShardingTemplate2"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- -->
+    <bean id="namedParameterJdbcDao0" class="com.petesky.jdbcSharding.dao.NamedParameterJdbcDao">
+        <property name="namedParameterJdbcShardingTemplate">
+            <ref bean="namedParameterJdbcShardingTemplate0"/>
+        </property>
+    </bean>
+
+    <bean id="namedParameterJdbcDao1" class="com.petesky.jdbcSharding.dao.NamedParameterJdbcDao">
+        <property name="namedParameterJdbcShardingTemplate">
+            <ref bean="namedParameterJdbcShardingTemplate1"/>
+        </property>
+    </bean>
+
+    <bean id="namedParameterJdbcDao2" class="com.petesky.jdbcSharding.dao.NamedParameterJdbcDao">
+        <property name="namedParameterJdbcShardingTemplate">
+            <ref bean="namedParameterJdbcShardingTemplate2"/>
+        </property>
+    </bean>
+
+
+</beans>

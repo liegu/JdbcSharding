@@ -1,0 +1,70 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+    <!--http://www.springframework.org/schema/beans/spring-beans.xsd" >-->
+
+
+    <!--&lt;!&ndash; ######################### 表路由对象配置   开始 ######################### &ndash;&gt;-->
+
+
+
+    <!--&lt;!&ndash; userActiveDays表路由对象 &ndash;&gt;-->
+    <!--<bean id="userActiveDaysRouter" class="com.duodian.common.dao.jdbcSharding.dbRouter.impl.DBRouterImpl">-->
+        <!--&lt;!&ndash; sql中的表名，单表查询可不用配置，联表查询必须配置 &ndash;&gt;-->
+        <!--<property name="tableName" value="user_active_days"/>-->
+        <!--&lt;!&ndash; 分片规则 &ndash;&gt;-->
+        <!--<property name="tableRule" value="drds_data_itry_qzui_{0}.user_active_days_{1}_{2}"/>-->
+        <!--&lt;!&ndash; 分片数量 &ndash;&gt;-->
+        <!--<property name="tableNumber" value="48"/>-->
+        <!--&lt;!&ndash; 分片字段，hash 模式可配置之个字段，多个字段用逗号分割 &ndash;&gt;-->
+        <!--<property name="shardField" value="user_id"/>-->
+        <!--&lt;!&ndash; 分片方式，可选 hash 或 mod&ndash;&gt;-->
+        <!--<property name="shardingType" value="mod"/>-->
+        <!--&lt;!&ndash; 分片计算器组&ndash;&gt;-->
+        <!--<property name="sliceComputeList" ref="sliceComputeList"/>-->
+        <!--&lt;!&ndash; 分片实例计算器&ndash;&gt;-->
+        <!--<property name="insModSliceCompute" ref="drdsInsSliceCompute"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="userPackageRouter" class="com.duodian.common.dao.jdbcSharding.dbRouter.impl.DBRouterImpl">-->
+        <!--&lt;!&ndash; sql中的表名，单表查询可不用配置，联表查询必须配置 &ndash;&gt;-->
+        <!--<property name="tableName" value="user_package"/>-->
+        <!--&lt;!&ndash; 分片规则 &ndash;&gt;-->
+        <!--<property name="tableRule" value="drds_data_itry_qzui_{0}.user_package_{1}_{2}"/>-->
+        <!--&lt;!&ndash; 分片数量 &ndash;&gt;-->
+        <!--<property name="tableNumber" value="48"/>-->
+        <!--&lt;!&ndash; 分片字段，hash 模式可配置之个字段，多个字段用逗号分割 &ndash;&gt;-->
+        <!--<property name="shardField" value="user_id"/>-->
+        <!--&lt;!&ndash; 分片方式，可选 hash 或 mod&ndash;&gt;-->
+        <!--<property name="shardingType" value="mod"/>-->
+        <!--&lt;!&ndash; 分片计算器组&ndash;&gt;-->
+        <!--<property name="sliceComputeList" ref="sliceComputeList"/>-->
+        <!--&lt;!&ndash; 分片实例计算器&ndash;&gt;-->
+        <!--<property name="insModSliceCompute" ref="drdsInsSliceCompute"/>-->
+    <!--</bean>-->
+
+
+    <!--<bean id="mulitRouter" class="com.duodian.common.dao.jdbcSharding.dbRouter.impl.MulitDBRouterImpl">-->
+
+        <!--<property name="dbRouterList" ref="routerList"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash; ######################### 表路由对象配置   结束 ######################### &ndash;&gt;-->
+
+
+    <!--&lt;!&ndash; sys_user_partner 表路由对象 &ndash;&gt;-->
+    <!--<bean id="sysUserPartnerRouter" class="com.duodian.common.dao.jdbcSharding.dbRouter.impl.DBRouterImpl">-->
+        <!--&lt;!&ndash; sql中的表名，单表查询可不用配置，联表查询必须配置 &ndash;&gt;-->
+        <!--<property name="tableName" value="sys_user_partner"/>-->
+        <!--&lt;!&ndash; 分片规则 &ndash;&gt;-->
+        <!--<property name="tableRule" value="sys_user_partner_{0}"/>-->
+        <!--&lt;!&ndash; 分片数量 &ndash;&gt;-->
+        <!--<property name="tableNumber" value="128"/>-->
+        <!--&lt;!&ndash; 分片字段，hash 模式可配置之个字段，多个字段用逗号分割 &ndash;&gt;-->
+        <!--<property name="shardField" value="user_id"/>-->
+        <!--&lt;!&ndash; 分片方式，可选 hash 或 mod&ndash;&gt;-->
+        <!--<property name="shardingType" value="hash"/>-->
+        <!--&lt;!&ndash; 分片计算器组&ndash;&gt;-->
+        <!--<property name="sliceComputeList" ref="sliceHashComputeList"/>-->
+    <!--</bean>-->
+<!--</beans>-->

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd" >
+
+            <!--数据库实例分片计算器-->
+    <bean id="drdsInsSliceCompute" class="com.petesky.jdbcSharding.dbRouter.impl.slice.aliyunDrds.DrdsInsSliceComputeImpl"/>
+            <!--逻辑库分片计算器-->
+    <bean id="drdsDbSliceCompute" class="com.petesky.jdbcSharding.dbRouter.impl.slice.aliyunDrds.DrdsDbSliceComputeImpl"/>
+            <!--逻辑表分片计算器-->
+    <bean id="drdsTableSliceCompute" class="com.petesky.jdbcSharding.dbRouter.impl.slice.aliyunDrds.DrdsTableSliceComputeImpl"/>
+            <!--逻辑尾号分片计算器-->
+    <bean id="drdsNoSliceCompute" class="com.petesky.jdbcSharding.dbRouter.impl.slice.aliyunDrds.DrdsNoSliceComputeImpl"/>
+
+
+            <!--分表计算器组
+            说明：1、计算器组顺序与Router.tableRule的顺序相关
+            -->
+    <bean id="sliceComputeList" class="java.util.ArrayList">
+    <constructor-arg>
+        <list>
+            <ref bean="drdsDbSliceCompute"/>
+            <ref bean="drdsNoSliceCompute"/>
+            <ref bean="drdsTableSliceCompute"/>
+        </list>
+    </constructor-arg>
+    </bean>
+
+
+            <!--多表联查路由列表-->
+    <!--<bean id="routerList" class="java.util.ArrayList">-->
+    <!--<constructor-arg>-->
+        <!--<list>-->
+            <!--<ref bean="userActiveDaysRouter"/>-->
+            <!--<ref bean="userPackageRouter"/>-->
+        <!--</list>-->
+    <!--</constructor-arg>-->
+    <!--</bean>-->
+</beans>
